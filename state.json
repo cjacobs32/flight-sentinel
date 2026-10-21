@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-10-21T21:09:32Z",
+  "updated_at": "2026-10-21T21:12:43Z",
   "quota": {
     "ok": true,
     "requested": 20,
@@ -1526,6 +1526,34 @@
             "reason": "Presupuesto OK: 6/250 usadas; techo automático 220; quedan 214 automáticas.",
             "source": "SerpApi Account API"
           }
+        },
+        {
+          "mode": "DESPEGAR_AUDIT",
+          "status": "AUDIT_INCONCLUSIVE",
+          "market_audit": {
+            "at": "2026-10-21T21:12:43Z",
+            "reconciliation": {
+              "status": "AUDIT_INCONCLUSIVE",
+              "google_airlines": [
+                "AA",
+                "AR",
+                "CM"
+              ],
+              "despegar_airlines": [],
+              "missing_in_google": [],
+              "missing_direct_in_google": [],
+              "note": "Auditoría inconclusa: no se pudieron parsear tarjetas visibles de Despegar. Esto NO significa que no haya vuelos."
+            },
+            "despegar": {
+              "status": "NO_RESULTS_PARSED",
+              "url": "https://www.despegar.com.ar/shop/flights/results/roundtrip/BUE/AUA/2027-02-09/2027-02-20/2/1/0?currency=USD",
+              "cards_seen": 0,
+              "direct_cards": 0,
+              "one_stop_cards": 0,
+              "warning": "Auditoría inconclusa: no se pudieron parsear tarjetas visibles de Despegar. Esto NO significa que no haya vuelos."
+            }
+          },
+          "at": "2026-10-21T21:12:43Z"
         }
       ],
       "last_audit": {
@@ -3178,6 +3206,45 @@
         "mode": "AUDIT",
         "at": "2026-10-21T20:53:35Z",
         "status": "OK"
+      },
+      "last_market_audit": {
+        "reconciliation": {
+          "status": "AUDIT_INCONCLUSIVE",
+          "google_airlines": [
+            "AA",
+            "AR",
+            "CM"
+          ],
+          "despegar_airlines": [],
+          "missing_in_google": [],
+          "missing_direct_in_google": [],
+          "unresolved_one_stop": [],
+          "only_google": [
+            "AA",
+            "AR",
+            "CM"
+          ],
+          "note": "Auditoría inconclusa: no se pudieron parsear tarjetas visibles de Despegar. Esto NO significa que no haya vuelos."
+        },
+        "despegar": {
+          "status": "NO_RESULTS_PARSED",
+          "url": "https://www.despegar.com.ar/shop/flights/results/roundtrip/BUE/AUA/2027-02-09/2027-02-20/2/1/0?currency=USD",
+          "cards_seen": 0,
+          "direct_cards": 0,
+          "one_stop_cards": 0,
+          "two_plus_cards": 0,
+          "airlines": [],
+          "direct_airlines": [],
+          "one_stop_airlines": [],
+          "eligible_airlines": [],
+          "unverified_one_stop_airlines": [],
+          "cheapest_per_person": {},
+          "cards": [],
+          "warning": "Auditoría inconclusa: no se pudieron parsear tarjetas visibles de Despegar. Esto NO significa que no haya vuelos.",
+          "evidence_json": "evidence/despegar_aruba-2027-flex_20261021_211155.json",
+          "evidence_screenshot": "evidence/despegar_aruba-2027-flex_20261021_211155.png"
+        },
+        "at": "2026-10-21T21:12:43Z"
       }
     }
   },
