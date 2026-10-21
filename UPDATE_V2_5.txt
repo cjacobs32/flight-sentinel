@@ -1,0 +1,33 @@
+FLIGHT SENTINEL V2.5 — WATCH → VERIFY → AUDIT
+================================================
+
+Objetivo: detectar oportunidades varias veces por día sin agotar SerpApi.
+
+NUEVO
+- WATCH gratuito con Fli / Google Flights: pensado para ejecutar cada 6 horas.
+- VERIFY SerpApi sólo ante cambios materiales (precio, disponibilidad, itinerario, aerolínea).
+- Reconciliación: si Fli deja de mostrar el mejor vuelo, SerpApi verifica el itinerario anterior antes de declarar pérdida de disponibilidad.
+- AUDIT profundo SerpApi independiente del WATCH, pensado para 2 veces por semana.
+- Guardia de presupuesto mediante SerpApi Account API: techo automático 220 y reserva manual 30 por defecto.
+- Si no puede comprobarse la cuota, el gasto SerpApi automático se bloquea.
+- Estado cloud JSON sin DB externa.
+- Dashboard estático para GitLab Pages.
+- Estado previo recuperable desde Pages en la siguiente pipeline.
+- Email sólo para cambios materiales confirmados.
+- Fechas visibles DD/MM/AAAA.
+
+ARCHIVOS PRINCIPALES
+- run_scheduled.py
+- src/watch_provider_fli.py
+- src/watch_engine.py
+- src/audit_engine.py
+- src/serpapi_budget.py
+- src/cloud_state.py
+- cloud_state_sync.py
+- cloud_dashboard.py
+- requirements-cloud.txt
+- .gitlab-ci.yml
+- GITLAB_AUTOMATION_V2_5.md
+
+IMPORTANTE
+Fli usa una integración no oficial/reverse-engineered con Google Flights. Es un sensor de descubrimiento, no una fuente de verdad. Flight Sentinel sólo trata cambios importantes como confirmados después de VERIFY con SerpApi cuando corresponde.

@@ -1,0 +1,8 @@
+Flight Sentinel V2.4.1 — UX/UI polish
+
+- Cards de ofertas más compactas y colapsables.
+- CTA verde de alta jerarquía para abrir la oferta en Google Flights.
+- Sistema de estados consistente: verde=éxito, azul=información, naranja=atención, rojo=crítico.
+- Cambio de precio por aerolínea/combinación vs. corrida anterior cuando existe comparación válida.
+- Timeline histórico: 5 eventos visibles + resto plegado.
+- Sin nuevas consultas API ni componentes pagos.

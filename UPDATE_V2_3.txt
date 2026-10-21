@@ -1,0 +1,51 @@
+FLIGHT SENTINEL V2.3 — ACTUALIZACIÓN SOBRE V2.2
+================================================
+
+Objetivo: dejar de confundir "Google explorado por completo" con "mercado completo".
+
+1) GOOGLE FLIGHTS EXPANDIDO
+- deep_search=true
+- show_hidden=true (incluye "Ver más vuelos")
+- gl=ar / hl=es
+- mantiene stops<=1 y layover<=120 min
+- mantiene exploración de departure_token hasta el techo configurado
+
+2) AUDITOR INDEPENDIENTE GRATUITO
+- Despegar mediante Playwright + Chrome local
+- sin API key de Despegar
+- sin tarjeta
+- sin servicio pago
+- compara aerolíneas observadas contra Google
+- directos son evidencia fuerte
+- 1 escala sólo se considera discrepancia si la duración <=120 min puede verificarse; si no, queda PARCIAL
+
+3) DASHBOARD
+- separa Cobertura Google de Cobertura mercado
+- estados mercado: CONSISTENTE / DISCREPANCIA / PARCIAL / NO VERIFICADA
+- botón "Auditar Despegar gratis" reutiliza la última corrida Google y NO consume SerpApi
+- muestra aerolíneas Google, Despegar y diferencias
+
+4) ALERTAS
+- MARKET_ALERT_REQUIRE_VALIDATION=true por defecto
+- si el precio baja pero el mercado está DISCREPANCY/PARTIAL/AUDIT_FAILED, se guarda el precio pero no se anuncia como mejor precio exhaustivo
+
+5) INSTALACIÓN SOBRE V2.2
+- cerrar dashboard con Ctrl+C
+- copiar el contenido del ZIP UPDATE sobre la carpeta actual y reemplazar archivos
+- ejecutar ACTUALIZAR_V2_3.bat una sola vez (instala Playwright en .venv)
+- NO modifica .env, monitors.yaml ni flight_monitor.db
+- luego ejecutar START_DASHBOARD.bat
+
+6) .ENV EXISTENTE
+No hace falta reescribirlo. Las variables nuevas tienen defaults seguros:
+SERPAPI_SHOW_HIDDEN=true
+SERPAPI_GL=ar
+SERPAPI_HL=es
+MARKET_AUDIT_ENABLED=true
+DESPEGAR_HEADLESS=true
+DESPEGAR_TIMEOUT_SECONDS=50
+DESPEGAR_MAX_SCROLLS=14
+MARKET_ALERT_REQUIRE_VALIDATION=true
+
+7) COSTO
+V2.3 no incorpora ningún fallback pago. Si un free tier se agota o Despegar no puede auditarse, la corrida queda marcada; no se activa un proveedor con costo.

@@ -1,0 +1,5 @@
+Flight Sentinel V2.7.3 — SMTP diagnóstico manual
+
+Agrega FLIGHT_ACTION=smtp_test para probar Gmail/SMTP sin ejecutar WATCH, AUDIT ni consumir SerpApi.
+El log muestra host, puerto, TLS, extensiones EHLO y si AUTH fue anunciado, sin imprimir usuario completo ni contraseña.
+Si la autenticación es aceptada, envía un único correo de prueba a EMAIL_TO.

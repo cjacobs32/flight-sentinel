@@ -1,0 +1,37 @@
+# Dependencias del agente de monitoreo de vuelos
+# Python >= 3.10
+#
+# Instalación base (PRICE_PROVIDER=mock):
+#   pip install -r requirements.txt
+#
+# Con Amadeus (PRICE_PROVIDER=amadeus):
+#   pip install -r requirements.txt && pip install amadeus
+
+# ── Núcleo ────────────────────────────────────────────────────────────────
+# smtplib, sqlite3, csv, hashlib, json, logging → stdlib, sin dependencias
+
+# ── Configuración YAML ────────────────────────────────────────────────────
+# Necesario para leer config.yaml. Si no usás YAML, no es obligatorio.
+pyyaml>=6.0
+
+# ── Carga automática de .env ──────────────────────────────────────────────
+python-dotenv>=1.0.0
+
+# ── Testing ───────────────────────────────────────────────────────────────
+pytest>=7.4.0
+
+# ── [OPCIONAL] Amadeus Flight Offers Search API ───────────────────────────
+# Solo si PRICE_PROVIDER=amadeus. Instalar manualmente:
+#   pip install amadeus
+# Requiere registro en https://developers.amadeus.com/
+# Versión mínima recomendada: amadeus>=9.0.0
+
+# ── [OPCIONAL] Kiwi Tequila API v2 ────────────────────────────────────────
+# Sin dependencias externas — usa urllib de la stdlib de Python.
+# Solo requiere registrarse en https://tequila.kiwi.com/ para obtener
+# la API key gratuita (sin tarjeta de crédito).
+# KIWI_API_KEY=tu_clave en .env o config.yaml + PRICE_PROVIDER=kiwi
+
+# ── Auditor independiente gratuito de mercado (Despegar) ────────────────
+# Usa el Chrome ya instalado en Windows; no requiere API key ni servicio pago.
+playwright>=1.62.0,<2

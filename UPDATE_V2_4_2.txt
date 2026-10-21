@@ -1,0 +1,8 @@
+Flight Sentinel V2.4.2 — Google Flights deep-link fix
+
+- Corrige todos los botones "Ver ... en Google Flights".
+- Elimina el enlace legacy basado en ?q=Flights+... que Google no interpreta de forma confiable.
+- Usa search_metadata.google_flights_url de SerpApi en corridas nuevas.
+- Migra en memoria los links históricos antiguos a un deep-link tfs estructurado, sin nueva consulta.
+- El deep-link carga origen, destino, ida, vuelta, pasajeros, cabina y máximo 1 escala.
+- No consume SerpApi al hacer clic.

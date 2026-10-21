@@ -1,0 +1,59 @@
+FLIGHT SENTINEL V2.7.0 — CLOUD PARITY
+=====================================
+
+Objetivo
+--------
+V2.7 corrige la principal regresión de la migración a GitLab: V2.6 había
+convertido WATCH/Fli en la fuente principal de comparación y simplificado en
+exceso las cards. Eso produjo dos problemas visibles:
+
+1. La comparación podía mostrar muy pocas ofertas porque Fli es un sensor no
+   oficial cuya cobertura fluctúa entre corridas.
+2. El dashboard cloud perdió gran parte de la riqueza visual y funcional de
+   V2.4.4.
+
+Qué cambia
+----------
+- “Actualizar precios” ejecuta la CONSULTA COMPLETA (SerpApi/Google Flights),
+  no WATCH.
+- La pestaña Comparación usa por defecto la última consulta completa si existe.
+- WATCH queda como sensor rápido/frecuente y puede elegirse como fuente
+  secundaria para diagnóstico.
+- Se restauran cards inspiradas directamente en V2.4.4:
+  * una alternativa representativa por aerolínea;
+  * botón “Ver todas las ofertas (N)”;
+  * precio reservable verificado separado del precio observado;
+  * precio promedio por pasajero;
+  * delta vs. consulta comparable anterior;
+  * vuelo / carry-on / bodega en bloques visuales;
+  * variantes y duración;
+  * badge de equipaje verificado;
+  * Google exacto, Detalles y Web aerolínea;
+  * itinerario, Booking Options y equipaje completos en desplegable.
+- Detalles y cobertura vuelve a mostrar consulta completa, WATCH, aerolíneas,
+  cobertura Google, cuota SerpApi y política de búsqueda.
+- Histórico conserva métricas, gráfico, timeline, tabla técnica y CSV.
+- La consulta completa verifica hasta 4 ofertas representativas (mejor +
+  aerolíneas nuevas), controlado por AUDIT_VERIFY_MAX_OFFERS=4.
+- Se conserva el snapshot anterior de WATCH y de consulta completa para poder
+  comparar cards equivalentes.
+- Estado de oferta suma duración y web de aerolínea.
+- SMTP hace EHLO antes y después de STARTTLS para Gmail 587.
+
+Costo y cuota
+-------------
+La arquitectura sigue siendo $0. WATCH usa Fli. La consulta completa/VERIFY usa
+SerpApi detrás del mismo guardia de cuota. El valor
+AUDIT_VERIFY_MAX_OFFERS=4 aumenta la riqueza de datos de la consulta completa,
+pero nunca salta el techo automático configurado.
+
+Validación V2.7
+---------------
+- Suite completa: 294 passed, 10 skipped, 0 failed.
+- JavaScript validado con node --check.
+- Render sintético validado en Chromium/Playwright:
+  * 5 aerolíneas visibles;
+  * consulta completa seleccionada por defecto;
+  * 5 cards renderizadas;
+  * botón “Ver todas las ofertas” presente;
+  * cards con equipaje verificado y Booking Options.

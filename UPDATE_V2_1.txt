@@ -1,0 +1,26 @@
+FLIGHT SENTINEL V2.1 - ACTUALIZACION SOBRE V2.0
+================================================
+
+Para una instalacion V2.0 que ya funciona:
+
+1. Detener el dashboard con Ctrl+C.
+2. Copiar los archivos de este update sobre la carpeta actual y aceptar reemplazar.
+3. NO borrar .env, monitors.yaml, flight_monitor.db ni .venv.
+4. Ejecutar START_DASHBOARD.bat.
+
+La base existente se migra automaticamente al iniciar. Las corridas V2.0 anteriores no
+registraban el proveedor dentro del snapshot y pueden figurar como FUENTE NO REGISTRADA.
+Las nuevas corridas quedaran identificadas como REAL / SIMULACION / SANDBOX.
+
+IMPORTANTE
+----------
+V2.1 usa SerpApi/Google Flights como proveedor por defecto. Ya no genera datos mock
+silenciosamente. Para precios reales debe existir un .env con:
+
+PRICE_PROVIDER=serpapi
+SERPAPI_API_KEY=tu_clave
+
+Si falta la API key, el dashboard lo muestra explicitamente y una corrida real no se ejecuta.
+
+El precio por pasajero mostrado es: precio total de la busqueda / cantidad de pasajeros.
+Se presenta como promedio porque adultos y menores pueden tener tarifas individuales distintas.

@@ -1,0 +1,32 @@
+FLIGHT SENTINEL V2.2 — UPDATE
+================================
+
+Qué cambia
+----------
+1. Fechas visibles y de entrada siempre en DD/MM/AAAA.
+2. La pantalla principal ya no muestra decenas de alternativas repetidas:
+   - mejor precio general;
+   - mejor alternativa por aerolínea;
+   - diferencia absoluta y porcentual contra el mejor precio.
+3. Botón "Ver todas las alternativas (N)" para abrir el detalle completo.
+4. Cobertura de búsqueda persistida por corrida:
+   - salidas detectadas;
+   - salidas exploradas;
+   - COMPLETA / PARCIAL;
+   - consultas lógicas SerpApi utilizadas.
+5. El histórico conserva también la cobertura de cada corrida.
+6. Migración SQLite automática: no hace falta borrar flight_monitor.db.
+
+Instalación sobre V2.1
+----------------------
+1. Cerrar el dashboard con Ctrl+C.
+2. Copiar el contenido del ZIP UPDATE sobre la carpeta actual.
+3. Aceptar reemplazar archivos.
+4. NO reemplazar .env, monitors.yaml, flight_monitor.db ni .venv.
+5. Ejecutar START_DASHBOARD.bat.
+6. Hacer una nueva corrida real para que la nueva métrica de cobertura quede registrada.
+
+Importante
+----------
+Las corridas V2.1 anteriores aparecerán como "Cobertura no registrada" porque esa información
+no existía en sus snapshots. No se pierde ningún histórico existente.

@@ -1,0 +1,163 @@
+name: Flight Sentinel Cloud
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Acción manual'
+        required: true
+        type: choice
+        default: render
+        options:
+          - render
+          - watch
+          - audit
+          - flex
+          - smtp_test
+      monitor_id:
+        description: 'ID de monitor (vacío = todos para WATCH/AUDIT/FLEX)'
+        required: false
+        type: string
+  schedule:
+    - cron: '17 0,6,12,18 * * *'
+      timezone: 'America/Argentina/Buenos_Aires'
+    - cron: '40 3 * * 1,4'
+      timezone: 'America/Argentina/Buenos_Aires'
+  issues:
+    types: [opened]
+
+concurrency:
+  group: flight-sentinel-cloud
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    # Los issues públicos sólo pueden controlar Flight Sentinel si los crea el owner.
+    if: >-
+      github.event_name != 'issues' ||
+      (github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[Flight Sentinel]'))
+    runs-on: ubuntu-latest
+    env:
+      FLIGHT_STATE_PATH: cloud_state/state.json
+      FLIGHT_STATE_BRANCH: flight-state
+      GITHUB_TOKEN: ${{ github.token }}
+      GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+      SMTP_HOST: ${{ vars.SMTP_HOST || 'smtp.gmail.com' }}
+      SMTP_PORT: ${{ vars.SMTP_PORT || '587' }}
+      SMTP_USE_TLS: ${{ vars.SMTP_USE_TLS || 'true' }}
+      SMTP_USER: ${{ vars.SMTP_USER }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      EMAIL_FROM: ${{ vars.EMAIL_FROM }}
+      EMAIL_TO: ${{ vars.EMAIL_TO }}
+      EMAIL_SUBJECT_PREFIX: ${{ vars.EMAIL_SUBJECT_PREFIX || '[Flight Sentinel]' }}
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: requirements-cloud.txt
+
+      - name: Install cloud dependencies
+        run: python -m pip install -r requirements-cloud.txt
+
+      - name: Resolve command
+        env:
+          DISPATCH_ACTION: ${{ inputs.action }}
+          DISPATCH_MONITOR: ${{ inputs.monitor_id }}
+          FLIGHT_ISSUE_BODY: ${{ github.event.issue.body }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$GITHUB_EVENT_NAME" in
+            workflow_dispatch)
+              echo "FLIGHT_ACTION=${DISPATCH_ACTION}" >> "$GITHUB_ENV"
+              echo "FLIGHT_MONITOR_ID=${DISPATCH_MONITOR}" >> "$GITHUB_ENV"
+              ;;
+            schedule)
+              if [[ "${{ github.event.schedule }}" == "40 3 * * 1,4" ]]; then
+                echo "FLIGHT_ACTION=audit" >> "$GITHUB_ENV"
+              else
+                echo "FLIGHT_ACTION=watch" >> "$GITHUB_ENV"
+              fi
+              ;;
+            issues)
+              python github_issue_command.py
+              ;;
+            *)
+              echo "Evento no soportado: $GITHUB_EVENT_NAME" >&2
+              exit 2
+              ;;
+          esac
+
+      - name: Restore durable state
+        run: python cloud_git_sync.py state-pull --state "$FLIGHT_STATE_PATH"
+
+      - name: Execute Flight Sentinel
+        run: python cloud_pipeline.py --state "$FLIGHT_STATE_PATH" --monitors-file monitors.yaml
+
+      - name: Generate GitHub Pages dashboard
+        run: >-
+          python cloud_dashboard.py
+          --state "$FLIGHT_STATE_PATH"
+          --monitors-file monitors.yaml
+          --output public/index.html
+          --repository-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+          --branch "$GITHUB_DEFAULT_BRANCH"
+
+      - name: Persist durable state
+        run: python cloud_git_sync.py state-push --state "$FLIGHT_STATE_PATH"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+      - name: Comment command success
+        if: success() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue comment "${{ github.event.issue.number }}" --body "Flight Sentinel procesó el comando correctamente. El dashboard se actualizará con este workflow."
+
+      - name: Close command issue
+        if: success() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue close "${{ github.event.issue.number }}" --reason completed
+
+      - name: Comment command failure
+        if: failure() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue comment "${{ github.event.issue.number }}" --body "Flight Sentinel no pudo completar el comando. El issue queda abierto para revisar el workflow fallido."
+
+  deploy:
+    if: always() && needs.build.result == 'success'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

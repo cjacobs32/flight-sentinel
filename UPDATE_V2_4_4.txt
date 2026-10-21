@@ -1,0 +1,14 @@
+Flight Sentinel V2.4.4 — Precio reservable
+
+Aplicar sobre V2.4.3:
+1. Cerrar START_DASHBOARD.bat con Ctrl+C.
+2. Copiar el contenido de este ZIP sobre la carpeta actual y aceptar reemplazar.
+3. Ejecutar START_DASHBOARD.bat.
+
+No modifica .env, monitors.yaml, flight_monitor.db ni .venv.
+No requiere una corrida completa nueva. Para ofertas históricas sin Booking Options guardadas, el primer clic en "Ver oferta en Google" resuelve y persiste el precio reservable y las opciones de compra del itinerario exacto.
+
+Semántica de precios:
+- Precio observado: resultado de la búsqueda; se usa para histórico/alertas.
+- Precio reservable verificado: menor booking option del itinerario exacto.
+- Directo aerolínea: menor booking option con airline=true, si Google la informa.

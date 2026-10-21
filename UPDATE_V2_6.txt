@@ -1,0 +1,62 @@
+Flight Sentinel V2.6.0 — Cloud Full
+==================================
+
+OBJETIVO
+--------
+La V2.6 reemplaza el dashboard cloud mínimo de V2.5 por una experiencia completa
+para GitLab Pages, recuperando la gestión y las vistas principales del dashboard
+local V2.4.x sin agregar un backend pago ni requerir una PC encendida.
+
+QUÉ VUELVE AL DASHBOARD CLOUD
+-----------------------------
+- Inicio con todos los monitores.
+- Crear, editar, pausar y eliminar monitores.
+- Fechas DD/MM/AAAA, pasajeros y cabina.
+- Consultar un monitor ahora (WATCH).
+- Lanzar AUDIT profundo bajo demanda.
+- Comparación de ofertas con filtros, orden y variantes.
+- Precio observado WATCH y precio reservable verificado separados.
+- Itinerario, escalas, layover, equipaje, vendedor y Google Flights.
+- Pestaña Detalles y cobertura.
+- Histórico, métricas, gráfico, timeline y exportación CSV.
+- Estado WATCH/AUDIT y guardia de cuota SerpApi.
+
+CÓMO SE RESUELVE LA EDICIÓN SI PAGES ES ESTÁTICO
+-------------------------------------------------
+No se incrusta ningún PAT, trigger token ni contraseña en el HTML.
+
+Guardar/Eliminar/Consultar abre la pantalla autenticada New pipeline de GitLab con
+las variables ya precargadas. El usuario sólo confirma New pipeline. Dentro de CI,
+el CI_JOB_TOKEN efímero del propio proyecto aplica la operación y vuelve a publicar
+Pages.
+
+PERSISTENCIA
+------------
+- Configuración funcional: monitors.yaml en main.
+- Estado/histórico cloud: state.json en rama flight-state.
+- GitLab cache: respaldo secundario.
+- public/state.json: copia de lectura para el dashboard publicado.
+
+Esto elimina la dependencia del fetch a Pages que en V2.5 podía devolver HTTP 403.
+
+CONFIGURACIÓN GITLAB OBLIGATORIA UNA SOLA VEZ
+---------------------------------------------
+Settings > CI/CD > Job token permissions > Permissions
+Activar: Allow Git push requests to the repository
+
+Sin esa opción WATCH puede ejecutarse, pero V2.6 no podrá persistir de forma durable
+la rama flight-state ni guardar cambios de monitors.yaml realizados desde la UI.
+
+SEGURIDAD / COSTO
+-----------------
+- No se agrega ningún servicio pago.
+- No se expone SERPAPI_API_KEY ni credenciales SMTP en Pages.
+- Las variables sensibles siguen sólo en GitLab CI/CD Variables.
+- El budget guard de SerpApi se mantiene.
+- La política EZE/AEP -> MIA, máximo 1 escala y layover <= 2 h sigue forzada.
+
+VALIDACIÓN
+----------
+287 tests OK, 10 skipped, 0 fallos.
+JavaScript del dashboard validado con node --check.
+Generación estática smoke-tested con monitor y estado sintéticos.

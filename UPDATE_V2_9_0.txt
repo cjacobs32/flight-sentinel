@@ -1,0 +1,13 @@
+Flight Sentinel V2.9.0 — Destinos + fechas flexibles
+
+- Destino configurable por monitor; MIA deja de estar hardcodeado.
+- Buscador de destino en GitHub Pages por IATA/nombre; Aruba=AUA.
+- Flexibilidad Exacta / ±1 / ±2 / ±3 días.
+- Cambios independientes de ida y vuelta.
+- Nueva acción GitHub Actions: flex.
+- Fli/SearchDates genera la matriz sin consumir SerpApi.
+- Verificación selectiva de las mejores combinaciones con Booking Options y budget guard.
+- Nueva pestaña Fechas flexibles con matriz, ahorro y estado sensor/verificado.
+- Auditor Despegar parametrizado por destino.
+- Compatibilidad: monitores antiguos sin destination/flex_days cargan como MIA/exactas.
+- Costo objetivo: USD 0.

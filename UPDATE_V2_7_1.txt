@@ -1,0 +1,13 @@
+Flight Sentinel V2.7.1 — Guardrail de acciones GitLab
+
+Corrige un fallo de integración observado en GitLab: al pulsar “Actualizar precios”, la pipeline web podía ejecutarse como WATCH si GitLab no aceptaba las variables precargadas.
+
+Cambios:
+- Expone FLIGHT_ACTION y FLIGHT_MONITOR_ID en la pantalla New pipeline.
+- Una pipeline manual (source=web) sin FLIGHT_ACTION falla de forma explícita; ya no degrada silenciosamente a WATCH.
+- Log de entrada muestra source/action/mode/monitor.
+- Log SMTP muestra host/puerto/TLS sin revelar credenciales.
+- VERSION 2.7.1.
+
+Ajuste GitLab requerido para el dashboard:
+Settings > CI/CD > Variables > Minimum role to use pipeline variables = Owner.

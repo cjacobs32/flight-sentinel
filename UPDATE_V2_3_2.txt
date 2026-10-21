@@ -1,0 +1,23 @@
+Flight Sentinel V2.3.2 - Hotfix de concurrencia y auditoría conservadora
+=======================================================================
+
+Aplicar sobre V2.3.1:
+1. Cerrar el dashboard con Ctrl+C.
+2. Descomprimir Flight-Sentinel-V2.3.2-Miami-UPDATE.zip sobre la raíz del proyecto.
+3. Aceptar reemplazar archivos.
+4. Ejecutar START_DASHBOARD.bat.
+
+No hace falta reinstalar Python ni Playwright.
+No se toca .env, monitors.yaml, flight_monitor.db ni evidence/.
+
+Cambios:
+- Una sola ejecución larga por monitor. Una segunda pestaña/click recibe HTTP 409 y NO consulta SerpApi.
+- Doble submit bloqueado también en JavaScript.
+- POST/Redirect/GET al finalizar: evita reenvíos y reduce errores por conexión cerrada.
+- WinError 10053/10054 del navegador ya no se transforma en un falso HTTP 400.
+- Despegar automático desactivado por defecto (MARKET_AUDIT_AUTO=false). El botón manual sigue disponible.
+- Revisión tardía de challenge anti-bot de Despegar.
+- 0 tarjetas Despegar = auditoría INCONCLUSA/NO VERIFICADA, nunca "0 vuelos".
+- Contador de aerolíneas Google cuenta carriers primarios y secundarios.
+- Fechas visibles/inputs continúan en DD/MM/AAAA.
+- Política de costo: cero.

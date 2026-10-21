@@ -1,0 +1,12 @@
+Flight Sentinel V2.8.0 — GitHub Actions migration
+
+- Migra CI y cloud runner de GitLab CI a GitHub Actions.
+- Migra Pages a GitHub Pages desplegado por Actions.
+- Conserva estado durable en rama flight-state.
+- Conserva monitors.yaml en main.
+- Reemplaza New pipeline de GitLab por GitHub Issues prellenados sin tokens.
+- Sólo el owner del repositorio puede emitir comandos desde issues.
+- Agrega workflow_dispatch para render/watch/audit/smtp_test.
+- Conserva schedules WATCH/AUDIT con timezone America/Argentina/Buenos_Aires.
+- Usa GITHUB_TOKEN efímero; no requiere PAT.
+- Mantiene guardia SerpApi y política $0.

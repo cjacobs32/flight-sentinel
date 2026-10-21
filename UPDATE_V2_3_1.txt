@@ -1,0 +1,14 @@
+Flight Sentinel V2.3.1 — HOTFIX
+
+Cambios:
+- Fix fecha DD/MM/AAAA: el pattern HTML ahora se renderiza correctamente.
+- Autoformato de fechas al escribir.
+- Spinner/overlay y contador de segundos durante búsquedas y auditorías.
+- Fix DespegarAudit.__init__ (faltaban eligible_airlines y unverified_one_stop_airlines).
+- Despegar anti-bot se clasifica como BLOCKED_BY_SITE / AUDIT_BLOCKED.
+- No se intenta evadir CAPTCHA ni protección anti-bot.
+- Una falla/bloqueo de Despegar nunca aborta ni pierde la corrida Google.
+- Mensajes de corrida incluyen el estado de cobertura de mercado.
+- Formato de log de fechas corregido con separador visual.
+
+No toca .env, monitors.yaml, flight_monitor.db, .venv ni evidence/ al aplicar el UPDATE.

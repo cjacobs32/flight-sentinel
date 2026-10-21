@@ -1,0 +1,15 @@
+Flight Sentinel V2.3.3
+======================
+
+- Nombres de aerolíneas: nombre exacto devuelto por Google Flights/SerpApi como fuente primaria.
+- Catálogo local IATA amplio como fallback (~983 códigos activos), derivado de OpenFlights.
+- Nueva sección visible "Aerolíneas encontradas por Google": código + descripción.
+- Ofertas destacadas ahora cubren aerolíneas secundarias de itinerarios mixtos (p.ej. DL + LA), no sólo el primer código.
+- Equipaje por tarifa: artículo personal, carry-on/cabina y equipaje en bodega, separados para ida y vuelta.
+- Las tarifas destacadas se enriquecen con Google Flights Booking Options vía SerpApi.
+- Lo que Google no informa queda explícitamente como "No informado"; no se infieren reglas genéricas de la aerolínea.
+- Si una valija despachada tiene costo informado, se muestra el importe.
+- El enriquecimiento de equipaje nunca invalida una corrida de vuelos si falla.
+- Las consultas de equipaje cuentan dentro de "Consultas SerpApi" para controlar el free tier.
+- DD/MM/AAAA se mantiene como formato visible/entrada.
+- Sin componentes pagos nuevos.

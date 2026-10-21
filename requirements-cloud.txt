@@ -1,0 +1,5 @@
+# Dependencias mínimas de automatización cloud V2.5
+# GitHub Actions usa Python 3.13 para alinearse con la matriz CI publicada por Fli.
+pyyaml>=6,<7
+python-dotenv>=1,<2
+flights==0.9.0

@@ -1,0 +1,33 @@
+# Flight Sentinel V2 — ejemplo de configuración de un monitor
+# Copiar como config.yaml y completar las fechas reales antes de ejecutar.
+
+monitor_id: miami-vacaciones
+monitor_name: "Vuelo monitoreado"
+
+depart_date: "2027-07-04"   # REEMPLAZAR por la fecha real
+return_date: "2027-07-11"   # REEMPLAZAR por la fecha real
+
+origins:
+  - EZE
+  - AEP
+destination: MIA  # default legacy; cada monitor puede elegir otro IATA
+
+# REGLA ESTRICTA: sólo directo o 1 escala de hasta 2 horas, por tramo.
+max_stops: 1
+max_layover_hours: 2.0
+
+adults: 2
+children_ages: [7]
+cabin_class: ECONOMY
+currency: USD
+
+# Google Flights vía SerpApi
+price_provider: serpapi
+serpapi_max_outbound_tokens: 1
+
+# Alertas
+alert_absolute_drop: 50
+alert_percent_drop: 5
+alert_mode: either
+baseline_mode: min
+alert_min_hours_between: 6

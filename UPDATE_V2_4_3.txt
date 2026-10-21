@@ -1,0 +1,6 @@
+Flight Sentinel V2.4.3
+
+- "Ver esta oferta en Google" fija el itinerario exacto, no sólo ruta y fechas.
+- Las corridas nuevas capturan el deep-link exacto de la misma consulta selected_flights_json usada para equipaje, sin consultas adicionales.
+- Snapshots históricos: el primer clic resuelve el itinerario exacto bajo demanda, lo guarda y redirige. Clics posteriores reutilizan el link persistido.
+- Si Google/SerpApi no permiten fijar la oferta, se informa el fallo y sólo entonces se ofrece abrir la búsqueda general.

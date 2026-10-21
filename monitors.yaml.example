@@ -1,0 +1,15 @@
+# Copiar como monitors.yaml. Podés crear más de uno desde GitHub Pages.
+# Política protegida: origen EZE/AEP, 0 o 1 escala por tramo, cada escala <= 2 horas.
+# El destino es configurable por código IATA. flex_days: 0 exactas, 1..3 = ±N días.
+monitors:
+  - id: aruba-enero
+    name: "Aruba - enero"
+    enabled: true
+    destination: AUA
+    date_outbound: "2027-01-01"
+    date_return: "2027-01-15"
+    flex_days: 3
+    adults: 2
+    children_ages: [8]
+    cabin_class: ECONOMY
+    currency: USD

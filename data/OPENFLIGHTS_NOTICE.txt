@@ -1,0 +1,4 @@
+Airline code fallback catalog derived from OpenFlights airlines.dat.
+Source: https://openflights.org/data.php
+License: Open Database License (ODbL) / Database Contents License as described by OpenFlights.
+Flight Sentinel uses airline names returned by Google Flights/SerpApi as the primary display source; this catalog is only a fallback for IATA codes when the provider does not return a name.

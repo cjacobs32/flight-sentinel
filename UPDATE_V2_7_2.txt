@@ -1,0 +1,7 @@
+Flight Sentinel V2.7.2 — Consistencia de precios y cards
+
+- El hero usa el menor precio reservable verificado, no la primera verificación.
+- El CTA principal apunta al mismo itinerario que el precio hero.
+- El histórico usa el menor precio verificado de cada corrida cuando existe.
+- Una oferta cuyo precio observado coincide con el reservable sigue identificándose como VERIFICADA.
+- Las cards multi-aerolínea usan “Mejor opción con …” para no atribuir todo el itinerario a una sola compañía.

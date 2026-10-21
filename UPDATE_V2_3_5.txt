@@ -1,0 +1,9 @@
+Flight Sentinel V2.3.5 — rediseño de usabilidad
+
+- La pantalla pasa a ser comparison-first: primero muestra una tabla compacta con aerolínea, precio, ida/vuelta y equipaje.
+- Las ofertas destacadas ya no muestran todo el itinerario de entrada: cada alternativa es plegable.
+- El detalle completo conserva horarios, segmentos, escalas y equipaje verificado y se abre sólo bajo demanda.
+- "Ver todas las alternativas" usa filas plegables compactas, evitando una página interminable con decenas de tarjetas abiertas.
+- El histórico y gráfico quedan en una sección plegable para priorizar la decisión de compra actual.
+- Se mantiene DD/MM/AAAA en toda la UI.
+- No cambia el motor de búsqueda, no agrega consultas SerpApi y no agrega componentes pagos.

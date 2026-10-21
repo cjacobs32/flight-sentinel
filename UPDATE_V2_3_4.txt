@@ -1,0 +1,9 @@
+Flight Sentinel V2.3.4 — hotfix Booking Options / equipaje
+
+- Corrige HTTP 400 "Missing departure_id" al verificar equipaje.
+- Booking Options se consulta fijando el itinerario exacto con selected_flights_json.
+- Cada segmento envía flight_number, departure_id, arrival_id y date.
+- Mantiene DD/MM/AAAA en UI; ISO queda sólo para APIs/DB.
+- No consume una búsqueda extra si no puede construir un itinerario válido.
+- Reutiliza equipaje VERIFIED de la misma oferta/precio desde SQLite para ahorrar cuota SerpApi.
+- No agrega servicios pagos ni fallback con costo.

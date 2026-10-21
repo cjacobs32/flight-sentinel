@@ -1,0 +1,33 @@
+Flight Sentinel V2.4 — Rediseño UX/UI total
+
+Qué cambia
+==========
+- Nueva arquitectura de navegación por pestañas: Comparación / Detalles y cobertura / Histórico.
+- Hero principal con mejor precio, promedio por pasajero, variación vs. corrida anterior, fechas, pasajeros y estado de cobertura.
+- Comparación basada en cards responsive, sin tablas horizontales comprimidas.
+- Filtros de aerolínea y escalas + orden por precio o duración, sin consultas adicionales.
+- Detalle técnico plegable por oferta: segmentos, escalas y equipaje completo.
+- Vista técnica separada para cobertura Google, cobertura de mercado, consultas SerpApi, catálogo de aerolíneas y política fija.
+- Histórico rediseñado con métricas, gráfico, filtros 7/14/30 días/Todo y timeline de cambios observados.
+- Exportación CSV desde el dashboard.
+- Formulario de monitor reorganizado por secciones, con cabina mediante botones y zona de peligro separada.
+- Mobile-first: cards apiladas, acciones táctiles y sin tablas anchas en el flujo principal.
+- Todas las fechas visibles y todos los inputs siguen usando DD/MM/AAAA.
+- No se agregan APIs, servicios ni dependencias de pago.
+
+Compatibilidad
+==============
+- No cambia monitors.yaml.
+- No cambia .env.
+- No cambia flight_monitor.db.
+- No cambia el motor de búsqueda ni el consumo de SerpApi.
+- No requiere reinstalar dependencias.
+
+Aplicación sobre V2.3.5
+=======================
+1. Cerrar START_DASHBOARD.bat con Ctrl+C.
+2. Descomprimir el ZIP UPDATE sobre la carpeta actual.
+3. Aceptar reemplazar archivos.
+4. Ejecutar START_DASHBOARD.bat.
+
+No hace falta hacer una corrida nueva para ver el rediseño: usa la última corrida guardada.
