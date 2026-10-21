@@ -13,9 +13,10 @@ on:
           - watch
           - audit
           - flex
+          - despegar_audit
           - smtp_test
       monitor_id:
-        description: 'ID de monitor (vacío = todos para WATCH/AUDIT/FLEX)'
+        description: 'ID de monitor (vacío = todos para WATCH/AUDIT/FLEX/DESPEGAR)'
         required: false
         type: string
   schedule:
@@ -103,6 +104,18 @@ jobs:
               ;;
           esac
 
+      - name: Prepare browser for Despegar audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${FLIGHT_ACTION:-}" == "despegar_audit" ]]; then
+            if command -v google-chrome >/dev/null 2>&1 || command -v chromium >/dev/null 2>&1; then
+              echo "System Chrome/Chromium available; Playwright will use it."
+            else
+              python -m playwright install chromium
+            fi
+          fi
+
       - name: Restore durable state
         run: python cloud_git_sync.py state-pull --state "$FLIGHT_STATE_PATH"
 
@@ -117,6 +130,9 @@ jobs:
           --output public/index.html
           --repository-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
           --branch "$GITHUB_DEFAULT_BRANCH"
+
+      - name: Restore Despegar dashboard parity
+        run: python cloud_despegar_patch.py --html public/index.html
 
       - name: Persist durable state
         run: python cloud_git_sync.py state-push --state "$FLIGHT_STATE_PATH"

@@ -2,7 +2,7 @@
 """Orquestador cloud V2.9 para GitHub Actions.
 
 Acciones (FLIGHT_ACTION):
-- watch / audit / flex
+- watch / audit / flex / despegar_audit
 - save_monitor / delete_monitor / smtp_test
 
 Los schedules usan FLIGHT_MODE=watch|audit. El workflow genera GitHub Pages y
@@ -96,7 +96,7 @@ def main() -> int:
         # Un workflow_dispatch manual sin acción no debe degradar silenciosamente a WATCH.
         if pipeline_source == "workflow_dispatch" and not action:
             raise ValueError(
-                "Ejecución manual sin FLIGHT_ACTION. Elegí watch, audit, flex, smtp_test o render desde GitHub Actions."
+                "Ejecución manual sin FLIGHT_ACTION. Elegí watch, audit, flex, despegar_audit, smtp_test o render desde GitHub Actions."
             )
 
         if action == "render":
@@ -126,6 +126,61 @@ def main() -> int:
             profiles = load_monitors(args.monitors_file)
             sync_monitors(state, profiles, prune=True)
             summary["monitor_deleted"] = deleted_id
+
+        elif action == "despegar_audit":
+            from src.agent import run_market_audit
+            from src.cloud_state import append_event, ensure_monitor, offer_from_state, utc_now
+            from src.monitor_registry import apply_monitor
+
+            profiles = load_monitors(args.monitors_file)
+            sync_monitors(state, profiles, prune=True)
+            targets = [m for m in profiles if m.enabled and (not monitor_id or m.id == monitor_id)]
+            if monitor_id and not targets:
+                raise ValueError(f"No existe un monitor activo con ID '{monitor_id}'")
+            if not targets:
+                raise ValueError("No hay monitores habilitados")
+
+            for profile in targets:
+                node = ensure_monitor(state, profile)
+                source = node.get("last_audit") or node.get("last_watch") or {}
+                rows = source.get("offers") or []
+                google_offers = [offer_from_state(row) for row in rows]
+                google_offers = [offer for offer in google_offers if offer is not None]
+                if not google_offers:
+                    raise ValueError(
+                        f"{profile.id}: no hay una corrida Google guardada para reconciliar. "
+                        "Ejecutá Actualizar precios antes de auditar Despegar."
+                    )
+                cfg = apply_monitor(base_cfg, profile)
+                market = run_market_audit(cfg, google_offers)
+                market["at"] = utc_now()
+                node["last_market_audit"] = market
+                rec = market.get("reconciliation") or {}
+                d = market.get("despegar") or {}
+                append_event(node, {
+                    "mode": "DESPEGAR_AUDIT",
+                    "status": rec.get("status") or d.get("status") or "UNKNOWN",
+                    "market_audit": {
+                        "at": market["at"],
+                        "reconciliation": {
+                            "status": rec.get("status"),
+                            "google_airlines": rec.get("google_airlines") or [],
+                            "despegar_airlines": rec.get("despegar_airlines") or [],
+                            "missing_in_google": rec.get("missing_in_google") or [],
+                            "missing_direct_in_google": rec.get("missing_direct_in_google") or [],
+                            "note": rec.get("note") or "",
+                        },
+                        "despegar": {
+                            "status": d.get("status"),
+                            "url": d.get("url") or "",
+                            "cards_seen": d.get("cards_seen") or 0,
+                            "direct_cards": d.get("direct_cards") or 0,
+                            "one_stop_cards": d.get("one_stop_cards") or 0,
+                            "warning": d.get("warning") or "",
+                        },
+                    },
+                })
+                results.append({"monitor_id": profile.id, "event": node["history"][-1]})
 
         else:
             mode = action if action in {"watch", "audit", "flex"} else default_mode

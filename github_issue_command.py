@@ -29,7 +29,7 @@ ALLOWED = {
     "MONITOR_ENABLED",
     "FLIGHT_RUN_AFTER_SAVE",
 }
-ACTIONS = {"watch", "audit", "flex", "save_monitor", "delete_monitor", "smtp_test", "render"}
+ACTIONS = {"watch", "audit", "flex", "despegar_audit", "save_monitor", "delete_monitor", "smtp_test", "render"}
 
 
 class CommandError(ValueError):
@@ -66,7 +66,7 @@ def parse_body(body: str) -> dict[str, str]:
         if values.get(key):
             values[key] = values[key].lower()
 
-    if action in {"watch", "audit", "flex", "delete_monitor"}:
+    if action in {"watch", "audit", "flex", "despegar_audit", "delete_monitor"}:
         mid = values.get("FLIGHT_MONITOR_ID") or values.get("MONITOR_ID")
         if not mid:
             raise CommandError(f"{action} requiere monitor_id")

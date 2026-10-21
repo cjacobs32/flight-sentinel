@@ -158,3 +158,10 @@ El script se detiene si hay cambios sin commit, conserva GitLab como remote `git
 ## 11. Destinos y fechas flexibles (V2.9)
 
 Cada monitor guarda `destination` y `flex_days`. `flex_days=0` usa sólo fechas exactas; 1..3 habilita una ventana independiente alrededor de ida y vuelta. El botón **Explorar fechas flexibles** usa Fli/SearchDates primero y SerpApi sólo para verificar las mejores combinaciones, respetando el guardia mensual.
+
+## V2.9.1 — paridad Despegar restaurada
+
+- El dashboard vuelve a mostrar **Ver en Despegar** con URL dinámica BUE → destino para las fechas/pasajeros del monitor.
+- **Auditar Despegar gratis** ejecuta el auditor independiente con Playwright usando la última corrida Google ya guardada; no dispara una búsqueda SerpApi nueva.
+- El resultado se conserva en `flight-state` como `last_market_audit` y se muestra en **Detalles y cobertura**.
+- Si Despegar bloquea automatización/CAPTCHA, el estado queda informado y la corrida Google no se invalida.

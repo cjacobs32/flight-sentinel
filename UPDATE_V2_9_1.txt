@@ -1,0 +1,7 @@
+Flight Sentinel V2.9.1
+
+- Restaura enlace directo “Ver en Despegar” en GitHub Pages.
+- Restaura auditoría manual “Auditar Despegar gratis”.
+- La auditoría usa la última corrida Google guardada y no consume una nueva consulta SerpApi.
+- Guarda el resultado en flight-state y lo expone en Detalles y cobertura.
+- Añade Playwright a dependencias cloud y preparación condicional del navegador.
