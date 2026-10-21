@@ -11,3 +11,15 @@ monitors:
   - 8
   cabin_class: ECONOMY
   currency: USD
+- id: aruba-2027-flex
+  name: aruba 2027
+  enabled: true
+  destination: AUA
+  date_outbound: '2027-02-09'
+  date_return: '2027-02-20'
+  flex_days: 3
+  adults: 2
+  children_ages:
+  - 8
+  cabin_class: ECONOMY
+  currency: USD
