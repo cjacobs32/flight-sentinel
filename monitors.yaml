@@ -1,0 +1,13 @@
+monitors:
+- id: aruba-2027
+  name: Aruba 2027
+  enabled: true
+  destination: AUA
+  date_outbound: '2027-02-10'
+  date_return: '2027-02-20'
+  flex_days: 0
+  adults: 2
+  children_ages:
+  - 8
+  cabin_class: ECONOMY
+  currency: USD
