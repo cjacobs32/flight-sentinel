@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-10-21T21:12:43Z",
+  "updated_at": "2026-10-22T00:03:28Z",
   "quota": {
     "ok": true,
     "requested": 20,
@@ -131,6 +131,30 @@
             "reason": "Presupuesto OK: 0/250 usadas; techo automático 220; quedan 220 automáticas.",
             "source": "SerpApi Account API"
           }
+        },
+        {
+          "mode": "WATCH",
+          "status": "OK",
+          "changes": [
+            {
+              "type": "BASELINE",
+              "severity": "info",
+              "message": "Primera observación WATCH."
+            }
+          ],
+          "watch": {
+            "status": "NO_RESULTS",
+            "at": "2026-10-22T00:02:43Z",
+            "offers_found": 0,
+            "airlines": [],
+            "direct_airlines": [],
+            "itinerary_hashes": [],
+            "best": null,
+            "source": "Fli · Google Flights no oficial · WATCH gratuito"
+          },
+          "verified": [],
+          "notify": false,
+          "at": "2026-10-22T00:02:43Z"
         }
       ],
       "last_audit": {
@@ -1403,9 +1427,20 @@
         "changes": []
       },
       "last_run": {
-        "mode": "AUDIT",
-        "at": "2026-10-21T20:46:58Z",
+        "mode": "WATCH",
+        "at": "2026-10-22T00:02:43Z",
         "status": "OK"
+      },
+      "last_watch": {
+        "status": "NO_RESULTS",
+        "at": "2026-10-22T00:02:43Z",
+        "offers_found": 0,
+        "airlines": [],
+        "direct_airlines": [],
+        "itinerary_hashes": [],
+        "offers": [],
+        "best": null,
+        "source": "Fli · Google Flights no oficial · WATCH gratuito"
       }
     },
     "aruba-2027-flex": {
@@ -1554,6 +1589,30 @@
             }
           },
           "at": "2026-10-21T21:12:43Z"
+        },
+        {
+          "mode": "WATCH",
+          "status": "OK",
+          "changes": [
+            {
+              "type": "BASELINE",
+              "severity": "info",
+              "message": "Primera observación WATCH."
+            }
+          ],
+          "watch": {
+            "status": "NO_RESULTS",
+            "at": "2026-10-22T00:03:28Z",
+            "offers_found": 0,
+            "airlines": [],
+            "direct_airlines": [],
+            "itinerary_hashes": [],
+            "best": null,
+            "source": "Fli · Google Flights no oficial · WATCH gratuito"
+          },
+          "verified": [],
+          "notify": false,
+          "at": "2026-10-22T00:03:28Z"
         }
       ],
       "last_audit": {
@@ -3203,8 +3262,8 @@
         "changes": []
       },
       "last_run": {
-        "mode": "AUDIT",
-        "at": "2026-10-21T20:53:35Z",
+        "mode": "WATCH",
+        "at": "2026-10-22T00:03:28Z",
         "status": "OK"
       },
       "last_market_audit": {
@@ -3245,6 +3304,17 @@
           "evidence_screenshot": "evidence/despegar_aruba-2027-flex_20261021_211155.png"
         },
         "at": "2026-10-21T21:12:43Z"
+      },
+      "last_watch": {
+        "status": "NO_RESULTS",
+        "at": "2026-10-22T00:03:28Z",
+        "offers_found": 0,
+        "airlines": [],
+        "direct_airlines": [],
+        "itinerary_hashes": [],
+        "offers": [],
+        "best": null,
+        "source": "Fli · Google Flights no oficial · WATCH gratuito"
       }
     }
   },
