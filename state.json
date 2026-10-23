@@ -1,17 +1,17 @@
 {
   "version": 2,
-  "updated_at": "2026-10-23T08:39:30Z",
+  "updated_at": "2026-10-23T14:19:28Z",
   "quota": {
     "ok": true,
     "requested": 1,
-    "used": 30,
+    "used": 32,
     "monthly_limit": 250,
-    "searches_left": 220,
+    "searches_left": 218,
     "auto_cap": 220,
-    "auto_left": 190,
+    "auto_left": 188,
     "reserve": 30,
     "renewal_date": "2026-10-25",
-    "reason": "Presupuesto OK: 30/250 usadas; techo automático 220; quedan 190 automáticas.",
+    "reason": "Presupuesto OK: 32/250 usadas; techo automático 220; quedan 188 automáticas.",
     "source": "SerpApi Account API"
   },
   "monitors": {
@@ -522,6 +522,61 @@
           },
           "email_sent": true,
           "at": "2026-10-23T08:39:03Z"
+        },
+        {
+          "mode": "WATCH",
+          "status": "OK",
+          "changes": [
+            {
+              "type": "WATCH_SOURCE_DISCREPANCY",
+              "severity": "info",
+              "confirmed": true,
+              "message": "Fli dejó de mostrar el mejor itinerario anterior, pero SerpApi confirmó que sigue reservable en Google Flights. No se considera pérdida de disponibilidad."
+            }
+          ],
+          "watch": {
+            "status": "NO_RESULTS",
+            "at": "2026-10-23T14:18:15Z",
+            "offers_found": 0,
+            "airlines": [],
+            "direct_airlines": [],
+            "itinerary_hashes": [],
+            "best": null,
+            "source": "Fli · Google Flights no oficial · WATCH gratuito"
+          },
+          "verified": [
+            {
+              "search_price": 4516.0,
+              "currency": "USD",
+              "itinerary_hash": "27d300e3fd3a7556",
+              "itinerary": "EZE→CUR(AR 1378) ✦75m CUR→AUA(AR 1378) // AUA→EZE(AR 1378)",
+              "airlines": [
+                "AR"
+              ],
+              "stops_outbound": 1,
+              "stops_inbound": 0,
+              "max_layover_hours": 1.25,
+              "exact_google_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpiEgoyMDI3LTAyLTEwIiAKA0VaRRIKMjAyNy0wMi0xMBoDQ1VSKgJBUjIEMTM3OCIgCgNDVVISCjIwMjctMDItMTAaA0FVQSoCQVIyBDEzNzhqBwgBEgNFWkVyBwgBEgNBVUEaQBIKMjAyNy0wMi0yMCIgCgNBVUESCjIwMjctMDItMjAaA0VaRSoCQVIyBDEzNzhqBwgBEgNBVUFyBwgBEgNFWkVAAUABQAJIAXABmAEB&tfu=EgIIAQ",
+              "booking_status": "VERIFIED",
+              "bookable_price": 3655.0,
+              "seller": "Despegar"
+            }
+          ],
+          "notify": false,
+          "budget": {
+            "ok": true,
+            "requested": 1,
+            "used": 31,
+            "monthly_limit": 250,
+            "searches_left": 219,
+            "auto_cap": 220,
+            "auto_left": 189,
+            "reserve": 30,
+            "renewal_date": "2026-10-25",
+            "reason": "Presupuesto OK: 31/250 usadas; techo automático 220; quedan 189 automáticas.",
+            "source": "SerpApi Account API"
+          },
+          "at": "2026-10-23T14:18:26Z"
         }
       ],
       "last_audit": {
@@ -1333,7 +1388,7 @@
         "source": "Google Flights · SerpApi · AUDIT profundo"
       },
       "last_verified": {
-        "at": "2026-10-23T08:39:02Z",
+        "at": "2026-10-23T14:18:26Z",
         "offers": [
           {
             "origin": "EZE",
@@ -1415,7 +1470,7 @@
               },
               "airline_direct": {
                 "seller": "Aerolineas Argentinas",
-                "price": 4663.0,
+                "price": 4664.0,
                 "currency": "USD",
                 "is_airline": true,
                 "fare": "",
@@ -1466,20 +1521,8 @@
                   ]
                 },
                 {
-                  "seller": "kiss&fly",
-                  "price": 3892.0,
-                  "currency": "USD",
-                  "is_airline": false,
-                  "fare": "",
-                  "extensions": [],
-                  "baggage_prices": [
-                    "1 free carry-on"
-                  ],
-                  "local_prices": []
-                },
-                {
                   "seller": "Aerolineas Argentinas",
-                  "price": 4663.0,
+                  "price": 4664.0,
                   "currency": "USD",
                   "is_airline": true,
                   "fare": "",
@@ -1523,27 +1566,35 @@
               "google_flights_exact_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpiEgoyMDI3LTAyLTEwIiAKA0VaRRIKMjAyNy0wMi0xMBoDQ1VSKgJBUjIEMTM3OCIgCgNDVVISCjIwMjctMDItMTAaA0FVQSoCQVIyBDEzNzhqBwgBEgNFWkVyBwgBEgNBVUEaQBIKMjAyNy0wMi0yMCIgCgNBVUESCjIwMjctMDItMjAaA0VaRSoCQVIyBDEzNzhqBwgBEgNBVUFyBwgBEgNFWkVAAUABQAJIAXABmAEB&tfu=EgIIAQ",
               "note": "Equipaje informado por Google para las opciones de reserva del itinerario exacto. Puede variar entre vendedores/tarifas; lo no informado queda como desconocido."
             },
-            "role": "current_best"
+            "role": "previous_best"
           }
         ],
         "changes": [
           {
-            "type": "PRICE_RISE",
-            "severity": "medium",
-            "old": 4186.0,
-            "new": 4516.0,
-            "diff": 330.0,
-            "pct": 7.883420926899188,
-            "message": "Precio WATCH cambió de 4186.00 a 4516.00 (+330.00)."
+            "type": "WATCH_SOURCE_DISCREPANCY",
+            "severity": "info",
+            "confirmed": true,
+            "message": "Fli dejó de mostrar el mejor itinerario anterior, pero SerpApi confirmó que sigue reservable en Google Flights. No se considera pérdida de disponibilidad."
           }
         ]
       },
       "last_run": {
         "mode": "WATCH",
-        "at": "2026-10-23T08:39:02Z",
+        "at": "2026-10-23T14:18:26Z",
         "status": "OK"
       },
       "last_watch": {
+        "status": "NO_RESULTS",
+        "at": "2026-10-23T14:18:15Z",
+        "offers_found": 0,
+        "airlines": [],
+        "direct_airlines": [],
+        "itinerary_hashes": [],
+        "offers": [],
+        "best": null,
+        "source": "Fli · Google Flights no oficial · WATCH gratuito"
+      },
+      "previous_watch": {
         "status": "OK",
         "at": "2026-10-23T08:38:42Z",
         "offers_found": 1,
@@ -1935,139 +1986,6 @@
             "note": "Equipaje informado por Google para las opciones de reserva del itinerario exacto. Puede variar entre vendedores/tarifas; lo no informado queda como desconocido."
           },
           "role": "current_best"
-        },
-        "source": "Fli · Google Flights no oficial · WATCH gratuito"
-      },
-      "previous_watch": {
-        "status": "OK",
-        "at": "2026-10-23T00:00:40Z",
-        "offers_found": 1,
-        "airlines": [
-          "AR"
-        ],
-        "direct_airlines": [],
-        "itinerary_hashes": [
-          "27d300e3fd3a7556"
-        ],
-        "offers": [
-          {
-            "origin": "EZE",
-            "destination": "AUA",
-            "date_out": "2027-02-10",
-            "date_ret": "2027-02-20",
-            "search_price": 4186.0,
-            "currency": "USD",
-            "cabin_class": "ECONOMY",
-            "adults": 2,
-            "children": 1,
-            "itinerary_hash": "27d300e3fd3a7556",
-            "itinerary": "EZE→CUR(AR 1378) ✦75m CUR→AUA(AR 1378) // AUA→EZE(AR 1378)",
-            "airlines": [
-              "AR"
-            ],
-            "stops_outbound": 1,
-            "stops_inbound": 0,
-            "max_layover_hours": 1.25,
-            "total_duration": "16h 30m",
-            "total_duration_minutes": 990,
-            "airline_url": "https://www.aerolineas.com.ar",
-            "outbound": [
-              {
-                "carrier": "AR",
-                "flight_number": "AR 1378",
-                "departure_iata": "EZE",
-                "arrival_iata": "CUR",
-                "departure_time": "2027-02-10T01:25:00",
-                "arrival_time": "2027-02-10T07:45:00",
-                "airline_name": ""
-              },
-              {
-                "carrier": "AR",
-                "flight_number": "AR 1378",
-                "departure_iata": "CUR",
-                "arrival_iata": "AUA",
-                "departure_time": "2027-02-10T09:00:00",
-                "arrival_time": "2027-02-10T09:40:00",
-                "airline_name": ""
-              }
-            ],
-            "inbound": [
-              {
-                "carrier": "AR",
-                "flight_number": "AR 1378",
-                "departure_iata": "AUA",
-                "arrival_iata": "EZE",
-                "departure_time": "2027-02-20T11:40:00",
-                "arrival_time": "2027-02-20T19:55:00",
-                "airline_name": ""
-              }
-            ],
-            "exact_google_url": null,
-            "booking_status": "NOT_CHECKED",
-            "bookable_price": null,
-            "seller": "",
-            "booking": {},
-            "baggage": {}
-          }
-        ],
-        "best": {
-          "origin": "EZE",
-          "destination": "AUA",
-          "date_out": "2027-02-10",
-          "date_ret": "2027-02-20",
-          "search_price": 4186.0,
-          "currency": "USD",
-          "cabin_class": "ECONOMY",
-          "adults": 2,
-          "children": 1,
-          "itinerary_hash": "27d300e3fd3a7556",
-          "itinerary": "EZE→CUR(AR 1378) ✦75m CUR→AUA(AR 1378) // AUA→EZE(AR 1378)",
-          "airlines": [
-            "AR"
-          ],
-          "stops_outbound": 1,
-          "stops_inbound": 0,
-          "max_layover_hours": 1.25,
-          "total_duration": "16h 30m",
-          "total_duration_minutes": 990,
-          "airline_url": "https://www.aerolineas.com.ar",
-          "outbound": [
-            {
-              "carrier": "AR",
-              "flight_number": "AR 1378",
-              "departure_iata": "EZE",
-              "arrival_iata": "CUR",
-              "departure_time": "2027-02-10T01:25:00",
-              "arrival_time": "2027-02-10T07:45:00",
-              "airline_name": ""
-            },
-            {
-              "carrier": "AR",
-              "flight_number": "AR 1378",
-              "departure_iata": "CUR",
-              "arrival_iata": "AUA",
-              "departure_time": "2027-02-10T09:00:00",
-              "arrival_time": "2027-02-10T09:40:00",
-              "airline_name": ""
-            }
-          ],
-          "inbound": [
-            {
-              "carrier": "AR",
-              "flight_number": "AR 1378",
-              "departure_iata": "AUA",
-              "arrival_iata": "EZE",
-              "departure_time": "2027-02-20T11:40:00",
-              "arrival_time": "2027-02-20T19:55:00",
-              "airline_name": ""
-            }
-          ],
-          "exact_google_url": null,
-          "booking_status": "NOT_CHECKED",
-          "bookable_price": null,
-          "seller": "",
-          "booking": {},
-          "baggage": {}
         },
         "source": "Fli · Google Flights no oficial · WATCH gratuito"
       },
@@ -3440,6 +3358,61 @@
           },
           "email_sent": true,
           "at": "2026-10-23T08:39:30Z"
+        },
+        {
+          "mode": "WATCH",
+          "status": "OK",
+          "changes": [
+            {
+              "type": "WATCH_SOURCE_DISCREPANCY",
+              "severity": "info",
+              "confirmed": true,
+              "message": "Fli dejó de mostrar el mejor itinerario anterior, pero SerpApi confirmó que sigue reservable en Google Flights. No se considera pérdida de disponibilidad."
+            }
+          ],
+          "watch": {
+            "status": "NO_RESULTS",
+            "at": "2026-10-23T14:19:11Z",
+            "offers_found": 0,
+            "airlines": [],
+            "direct_airlines": [],
+            "itinerary_hashes": [],
+            "best": null,
+            "source": "Fli · Google Flights no oficial · WATCH gratuito"
+          },
+          "verified": [
+            {
+              "search_price": 4199.0,
+              "currency": "USD",
+              "itinerary_hash": "0cfdd1da09dbeb8f",
+              "itinerary": "EZE→AUA(AR 1374) // AUA→EZE(AR 1378)",
+              "airlines": [
+                "AR"
+              ],
+              "stops_outbound": 0,
+              "stops_inbound": 0,
+              "max_layover_hours": 0.0,
+              "exact_google_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpAEgoyMDI3LTAyLTA5IiAKA0VaRRIKMjAyNy0wMi0wORoDQVVBKgJBUjIEMTM3NGoHCAESA0VaRXIHCAESA0FVQRpAEgoyMDI3LTAyLTIwIiAKA0FVQRIKMjAyNy0wMi0yMBoDRVpFKgJBUjIEMTM3OGoHCAESA0FVQXIHCAESA0VaRUABQAFAAkgBcAGYAQE&tfu=EgIIAQ",
+              "booking_status": "VERIFIED",
+              "bookable_price": 3400.0,
+              "seller": "kiss&fly"
+            }
+          ],
+          "notify": false,
+          "budget": {
+            "ok": true,
+            "requested": 1,
+            "used": 32,
+            "monthly_limit": 250,
+            "searches_left": 218,
+            "auto_cap": 220,
+            "auto_left": 188,
+            "reserve": 30,
+            "renewal_date": "2026-10-25",
+            "reason": "Presupuesto OK: 32/250 usadas; techo automático 220; quedan 188 automáticas.",
+            "source": "SerpApi Account API"
+          },
+          "at": "2026-10-23T14:19:28Z"
         }
       ],
       "last_audit": {
@@ -4627,7 +4600,7 @@
         "source": "Google Flights · SerpApi · AUDIT profundo"
       },
       "last_verified": {
-        "at": "2026-10-23T08:39:29Z",
+        "at": "2026-10-23T14:19:28Z",
         "offers": [
           {
             "origin": "EZE",
@@ -4674,7 +4647,7 @@
             ],
             "exact_google_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpAEgoyMDI3LTAyLTA5IiAKA0VaRRIKMjAyNy0wMi0wORoDQVVBKgJBUjIEMTM3NGoHCAESA0VaRXIHCAESA0FVQRpAEgoyMDI3LTAyLTIwIiAKA0FVQRIKMjAyNy0wMi0yMBoDRVpFKgJBUjIEMTM3OGoHCAESA0FVQXIHCAESA0VaRUABQAFAAkgBcAGYAQE&tfu=EgIIAQ",
             "booking_status": "VERIFIED",
-            "bookable_price": 3396.0,
+            "bookable_price": 3400.0,
             "seller": "kiss&fly",
             "booking": {
               "status": "VERIFIED",
@@ -4683,7 +4656,7 @@
               "search_price": 4199.0,
               "lowest": {
                 "seller": "kiss&fly",
-                "price": 3396.0,
+                "price": 3400.0,
                 "currency": "USD",
                 "is_airline": false,
                 "fare": "",
@@ -4713,7 +4686,7 @@
               "options": [
                 {
                   "seller": "kiss&fly",
-                  "price": 3396.0,
+                  "price": 3400.0,
                   "currency": "USD",
                   "is_airline": false,
                   "fare": "",
@@ -4803,42 +4776,21 @@
               "google_flights_exact_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpAEgoyMDI3LTAyLTA5IiAKA0VaRRIKMjAyNy0wMi0wORoDQVVBKgJBUjIEMTM3NGoHCAESA0VaRXIHCAESA0FVQRpAEgoyMDI3LTAyLTIwIiAKA0FVQRIKMjAyNy0wMi0yMBoDRVpFKgJBUjIEMTM3OGoHCAESA0FVQXIHCAESA0VaRUABQAFAAkgBcAGYAQE&tfu=EgIIAQ",
               "note": "Equipaje informado por Google para las opciones de reserva del itinerario exacto. Puede variar entre vendedores/tarifas; lo no informado queda como desconocido."
             },
-            "role": "current_best"
+            "role": "previous_best"
           }
         ],
         "changes": [
           {
-            "type": "AVAILABILITY_RESTORED",
-            "severity": "high",
-            "message": "WATCH volvió a encontrar ofertas válidas."
-          },
-          {
-            "type": "NEW_AIRLINE",
-            "severity": "medium",
-            "airlines": [
-              "AR"
-            ],
-            "message": "Nueva(s) aerolínea(s) en WATCH: AR."
-          },
-          {
-            "type": "NEW_DIRECT_AVAILABILITY",
-            "severity": "high",
-            "airlines": [
-              "AR"
-            ],
-            "message": "Nueva disponibilidad directa en WATCH: AR."
-          },
-          {
-            "type": "NEW_ITINERARIES",
+            "type": "WATCH_SOURCE_DISCREPANCY",
             "severity": "info",
-            "count": 1,
-            "message": "WATCH detectó 1 itinerario(s) que no estaban en la observación anterior."
+            "confirmed": true,
+            "message": "Fli dejó de mostrar el mejor itinerario anterior, pero SerpApi confirmó que sigue reservable en Google Flights. No se considera pérdida de disponibilidad."
           }
         ]
       },
       "last_run": {
         "mode": "WATCH",
-        "at": "2026-10-23T08:39:29Z",
+        "at": "2026-10-23T14:19:28Z",
         "status": "OK"
       },
       "last_market_audit": {
@@ -4881,6 +4833,17 @@
         "at": "2026-10-21T21:12:43Z"
       },
       "last_watch": {
+        "status": "NO_RESULTS",
+        "at": "2026-10-23T14:19:11Z",
+        "offers_found": 0,
+        "airlines": [],
+        "direct_airlines": [],
+        "itinerary_hashes": [],
+        "offers": [],
+        "best": null,
+        "source": "Fli · Google Flights no oficial · WATCH gratuito"
+      },
+      "previous_watch": {
         "status": "OK",
         "at": "2026-10-23T08:39:08Z",
         "offers_found": 1,
@@ -5247,17 +5210,6 @@
           },
           "role": "current_best"
         },
-        "source": "Fli · Google Flights no oficial · WATCH gratuito"
-      },
-      "previous_watch": {
-        "status": "NO_RESULTS",
-        "at": "2026-10-23T00:00:40Z",
-        "offers_found": 0,
-        "airlines": [],
-        "direct_airlines": [],
-        "itinerary_hashes": [],
-        "offers": [],
-        "best": null,
         "source": "Fli · Google Flights no oficial · WATCH gratuito"
       },
       "previous_audit": {
