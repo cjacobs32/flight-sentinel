@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-10-22T19:16:14Z",
+  "updated_at": "2026-10-23T00:00:40Z",
   "quota": {
     "ok": true,
     "requested": 1,
@@ -407,6 +407,43 @@
           "verified": [],
           "notify": false,
           "at": "2026-10-22T19:15:30Z"
+        },
+        {
+          "mode": "WATCH",
+          "status": "OK",
+          "changes": [],
+          "watch": {
+            "status": "OK",
+            "at": "2026-10-23T00:00:40Z",
+            "offers_found": 1,
+            "airlines": [
+              "AR"
+            ],
+            "direct_airlines": [],
+            "itinerary_hashes": [
+              "27d300e3fd3a7556"
+            ],
+            "best": {
+              "search_price": 4186.0,
+              "currency": "USD",
+              "itinerary_hash": "27d300e3fd3a7556",
+              "itinerary": "EZE→CUR(AR 1378) ✦75m CUR→AUA(AR 1378) // AUA→EZE(AR 1378)",
+              "airlines": [
+                "AR"
+              ],
+              "stops_outbound": 1,
+              "stops_inbound": 0,
+              "max_layover_hours": 1.25,
+              "exact_google_url": null,
+              "booking_status": "NOT_CHECKED",
+              "bookable_price": null,
+              "seller": ""
+            },
+            "source": "Fli · Google Flights no oficial · WATCH gratuito"
+          },
+          "verified": [],
+          "notify": false,
+          "at": "2026-10-23T00:00:40Z"
         }
       ],
       "last_audit": {
@@ -1430,12 +1467,12 @@
       },
       "last_run": {
         "mode": "WATCH",
-        "at": "2026-10-22T19:15:30Z",
+        "at": "2026-10-23T00:00:40Z",
         "status": "OK"
       },
       "last_watch": {
         "status": "OK",
-        "at": "2026-10-22T19:15:30Z",
+        "at": "2026-10-23T00:00:40Z",
         "offers_found": 1,
         "airlines": [
           "AR"
@@ -1568,7 +1605,7 @@
       },
       "previous_watch": {
         "status": "OK",
-        "at": "2026-10-22T14:33:40Z",
+        "at": "2026-10-22T19:15:30Z",
         "offers_found": 1,
         "airlines": [
           "AR"
@@ -1583,7 +1620,7 @@
             "destination": "AUA",
             "date_out": "2027-02-10",
             "date_ret": "2027-02-20",
-            "search_price": 4182.0,
+            "search_price": 4186.0,
             "currency": "USD",
             "cabin_class": "ECONOMY",
             "adults": 2,
@@ -1630,138 +1667,12 @@
                 "airline_name": ""
               }
             ],
-            "exact_google_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpiEgoyMDI3LTAyLTEwIiAKA0VaRRIKMjAyNy0wMi0xMBoDQ1VSKgJBUjIEMTM3OCIgCgNDVVISCjIwMjctMDItMTAaA0FVQSoCQVIyBDEzNzhqBwgBEgNFWkVyBwgBEgNBVUEaQBIKMjAyNy0wMi0yMCIgCgNBVUESCjIwMjctMDItMjAaA0VaRSoCQVIyBDEzNzhqBwgBEgNBVUFyBwgBEgNFWkVAAUABQAJIAXABmAEB&tfu=EgIIAQ",
-            "booking_status": "VERIFIED",
-            "bookable_price": 3389.0,
-            "seller": "kiss&fly",
-            "booking": {
-              "status": "VERIFIED",
-              "source": "Google Flights · Booking Options (SerpApi)",
-              "currency": "USD",
-              "search_price": 4182.0,
-              "lowest": {
-                "seller": "kiss&fly",
-                "price": 3389.0,
-                "currency": "USD",
-                "is_airline": false,
-                "fare": "",
-                "extensions": [],
-                "baggage_prices": [
-                  "1 free carry-on"
-                ],
-                "local_prices": []
-              },
-              "airline_direct": {
-                "seller": "Aerolineas Argentinas",
-                "price": 4329.0,
-                "currency": "USD",
-                "is_airline": true,
-                "fare": "",
-                "extensions": [],
-                "baggage_prices": [
-                  "1 free carry-on"
-                ],
-                "local_prices": [
-                  {
-                    "currency": "ARS",
-                    "price": 6617205.0
-                  }
-                ]
-              },
-              "options": [
-                {
-                  "seller": "kiss&fly",
-                  "price": 3389.0,
-                  "currency": "USD",
-                  "is_airline": false,
-                  "fare": "",
-                  "extensions": [],
-                  "baggage_prices": [
-                    "1 free carry-on"
-                  ],
-                  "local_prices": []
-                },
-                {
-                  "seller": "Despegar",
-                  "price": 3393.0,
-                  "currency": "USD",
-                  "is_airline": false,
-                  "fare": "",
-                  "extensions": [],
-                  "baggage_prices": [
-                    "1 free carry-on"
-                  ],
-                  "local_prices": [
-                    {
-                      "currency": "ARS",
-                      "price": 5186952.0
-                    }
-                  ]
-                },
-                {
-                  "seller": "Travomint",
-                  "price": 3570.0,
-                  "currency": "USD",
-                  "is_airline": false,
-                  "fare": "",
-                  "extensions": [],
-                  "baggage_prices": [
-                    "1 free carry-on"
-                  ],
-                  "local_prices": [
-                    {
-                      "currency": "ARS",
-                      "price": 5456601.0
-                    }
-                  ]
-                },
-                {
-                  "seller": "Aerolineas Argentinas",
-                  "price": 4329.0,
-                  "currency": "USD",
-                  "is_airline": true,
-                  "fare": "",
-                  "extensions": [],
-                  "baggage_prices": [
-                    "1 free carry-on"
-                  ],
-                  "local_prices": [
-                    {
-                      "currency": "ARS",
-                      "price": 6617205.0
-                    }
-                  ]
-                }
-              ],
-              "note": "Precio reservable verificado para el itinerario exacto. Puede variar entre vendedores y familias tarifarias."
-            },
-            "baggage": {
-              "status": "VERIFIED",
-              "source": "Google Flights · Booking Options (SerpApi)",
-              "outbound": {
-                "personal_item": "UNKNOWN",
-                "carry_on": "INCLUDED",
-                "checked_bag": "UNKNOWN",
-                "checked_bag_price": null,
-                "currency": "USD",
-                "raw": [
-                  "1 free carry-on"
-                ]
-              },
-              "inbound": {
-                "personal_item": "UNKNOWN",
-                "carry_on": "INCLUDED",
-                "checked_bag": "UNKNOWN",
-                "checked_bag_price": null,
-                "currency": "USD",
-                "raw": [
-                  "1 free carry-on"
-                ]
-              },
-              "google_flights_exact_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpiEgoyMDI3LTAyLTEwIiAKA0VaRRIKMjAyNy0wMi0xMBoDQ1VSKgJBUjIEMTM3OCIgCgNDVVISCjIwMjctMDItMTAaA0FVQSoCQVIyBDEzNzhqBwgBEgNFWkVyBwgBEgNBVUEaQBIKMjAyNy0wMi0yMCIgCgNBVUESCjIwMjctMDItMjAaA0VaRSoCQVIyBDEzNzhqBwgBEgNBVUFyBwgBEgNFWkVAAUABQAJIAXABmAEB&tfu=EgIIAQ",
-              "note": "Equipaje informado por Google para las opciones de reserva del itinerario exacto. Puede variar entre vendedores/tarifas; lo no informado queda como desconocido."
-            },
-            "role": "current_best"
+            "exact_google_url": null,
+            "booking_status": "NOT_CHECKED",
+            "bookable_price": null,
+            "seller": "",
+            "booking": {},
+            "baggage": {}
           }
         ],
         "best": {
@@ -1769,7 +1680,7 @@
           "destination": "AUA",
           "date_out": "2027-02-10",
           "date_ret": "2027-02-20",
-          "search_price": 4182.0,
+          "search_price": 4186.0,
           "currency": "USD",
           "cabin_class": "ECONOMY",
           "adults": 2,
@@ -1816,138 +1727,12 @@
               "airline_name": ""
             }
           ],
-          "exact_google_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpiEgoyMDI3LTAyLTEwIiAKA0VaRRIKMjAyNy0wMi0xMBoDQ1VSKgJBUjIEMTM3OCIgCgNDVVISCjIwMjctMDItMTAaA0FVQSoCQVIyBDEzNzhqBwgBEgNFWkVyBwgBEgNBVUEaQBIKMjAyNy0wMi0yMCIgCgNBVUESCjIwMjctMDItMjAaA0VaRSoCQVIyBDEzNzhqBwgBEgNBVUFyBwgBEgNFWkVAAUABQAJIAXABmAEB&tfu=EgIIAQ",
-          "booking_status": "VERIFIED",
-          "bookable_price": 3389.0,
-          "seller": "kiss&fly",
-          "booking": {
-            "status": "VERIFIED",
-            "source": "Google Flights · Booking Options (SerpApi)",
-            "currency": "USD",
-            "search_price": 4182.0,
-            "lowest": {
-              "seller": "kiss&fly",
-              "price": 3389.0,
-              "currency": "USD",
-              "is_airline": false,
-              "fare": "",
-              "extensions": [],
-              "baggage_prices": [
-                "1 free carry-on"
-              ],
-              "local_prices": []
-            },
-            "airline_direct": {
-              "seller": "Aerolineas Argentinas",
-              "price": 4329.0,
-              "currency": "USD",
-              "is_airline": true,
-              "fare": "",
-              "extensions": [],
-              "baggage_prices": [
-                "1 free carry-on"
-              ],
-              "local_prices": [
-                {
-                  "currency": "ARS",
-                  "price": 6617205.0
-                }
-              ]
-            },
-            "options": [
-              {
-                "seller": "kiss&fly",
-                "price": 3389.0,
-                "currency": "USD",
-                "is_airline": false,
-                "fare": "",
-                "extensions": [],
-                "baggage_prices": [
-                  "1 free carry-on"
-                ],
-                "local_prices": []
-              },
-              {
-                "seller": "Despegar",
-                "price": 3393.0,
-                "currency": "USD",
-                "is_airline": false,
-                "fare": "",
-                "extensions": [],
-                "baggage_prices": [
-                  "1 free carry-on"
-                ],
-                "local_prices": [
-                  {
-                    "currency": "ARS",
-                    "price": 5186952.0
-                  }
-                ]
-              },
-              {
-                "seller": "Travomint",
-                "price": 3570.0,
-                "currency": "USD",
-                "is_airline": false,
-                "fare": "",
-                "extensions": [],
-                "baggage_prices": [
-                  "1 free carry-on"
-                ],
-                "local_prices": [
-                  {
-                    "currency": "ARS",
-                    "price": 5456601.0
-                  }
-                ]
-              },
-              {
-                "seller": "Aerolineas Argentinas",
-                "price": 4329.0,
-                "currency": "USD",
-                "is_airline": true,
-                "fare": "",
-                "extensions": [],
-                "baggage_prices": [
-                  "1 free carry-on"
-                ],
-                "local_prices": [
-                  {
-                    "currency": "ARS",
-                    "price": 6617205.0
-                  }
-                ]
-              }
-            ],
-            "note": "Precio reservable verificado para el itinerario exacto. Puede variar entre vendedores y familias tarifarias."
-          },
-          "baggage": {
-            "status": "VERIFIED",
-            "source": "Google Flights · Booking Options (SerpApi)",
-            "outbound": {
-              "personal_item": "UNKNOWN",
-              "carry_on": "INCLUDED",
-              "checked_bag": "UNKNOWN",
-              "checked_bag_price": null,
-              "currency": "USD",
-              "raw": [
-                "1 free carry-on"
-              ]
-            },
-            "inbound": {
-              "personal_item": "UNKNOWN",
-              "carry_on": "INCLUDED",
-              "checked_bag": "UNKNOWN",
-              "checked_bag_price": null,
-              "currency": "USD",
-              "raw": [
-                "1 free carry-on"
-              ]
-            },
-            "google_flights_exact_url": "https://www.google.com/travel/flights?hl=es&gl=ar&curr=USD&tfs=CBwQAhpiEgoyMDI3LTAyLTEwIiAKA0VaRRIKMjAyNy0wMi0xMBoDQ1VSKgJBUjIEMTM3OCIgCgNDVVISCjIwMjctMDItMTAaA0FVQSoCQVIyBDEzNzhqBwgBEgNFWkVyBwgBEgNBVUEaQBIKMjAyNy0wMi0yMCIgCgNBVUESCjIwMjctMDItMjAaA0VaRSoCQVIyBDEzNzhqBwgBEgNBVUFyBwgBEgNFWkVAAUABQAJIAXABmAEB&tfu=EgIIAQ",
-            "note": "Equipaje informado por Google para las opciones de reserva del itinerario exacto. Puede variar entre vendedores/tarifas; lo no informado queda como desconocido."
-          },
-          "role": "current_best"
+          "exact_google_url": null,
+          "booking_status": "NOT_CHECKED",
+          "bookable_price": null,
+          "seller": "",
+          "booking": {},
+          "baggage": {}
         },
         "source": "Fli · Google Flights no oficial · WATCH gratuito"
       },
@@ -3204,6 +2989,24 @@
           "verified": [],
           "notify": false,
           "at": "2026-10-22T19:16:14Z"
+        },
+        {
+          "mode": "WATCH",
+          "status": "OK",
+          "changes": [],
+          "watch": {
+            "status": "NO_RESULTS",
+            "at": "2026-10-23T00:00:40Z",
+            "offers_found": 0,
+            "airlines": [],
+            "direct_airlines": [],
+            "itinerary_hashes": [],
+            "best": null,
+            "source": "Fli · Google Flights no oficial · WATCH gratuito"
+          },
+          "verified": [],
+          "notify": false,
+          "at": "2026-10-23T00:00:40Z"
         }
       ],
       "last_audit": {
@@ -4557,7 +4360,7 @@
       },
       "last_run": {
         "mode": "WATCH",
-        "at": "2026-10-22T19:16:14Z",
+        "at": "2026-10-23T00:00:40Z",
         "status": "OK"
       },
       "last_market_audit": {
@@ -4601,7 +4404,7 @@
       },
       "last_watch": {
         "status": "NO_RESULTS",
-        "at": "2026-10-22T19:16:14Z",
+        "at": "2026-10-23T00:00:40Z",
         "offers_found": 0,
         "airlines": [],
         "direct_airlines": [],
@@ -4612,7 +4415,7 @@
       },
       "previous_watch": {
         "status": "NO_RESULTS",
-        "at": "2026-10-22T14:34:45Z",
+        "at": "2026-10-22T19:16:14Z",
         "offers_found": 0,
         "airlines": [],
         "direct_airlines": [],
