@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-10-27T00:32:21Z",
+  "updated_at": "2026-10-27T09:06:59Z",
   "quota": {
     "ok": true,
     "requested": 20,
@@ -1524,6 +1524,24 @@
           "verified": [],
           "notify": false,
           "at": "2026-10-27T00:31:36Z"
+        },
+        {
+          "mode": "WATCH",
+          "status": "OK",
+          "changes": [],
+          "watch": {
+            "status": "NO_RESULTS",
+            "at": "2026-10-27T09:06:59Z",
+            "offers_found": 0,
+            "airlines": [],
+            "direct_airlines": [],
+            "itinerary_hashes": [],
+            "best": null,
+            "source": "Fli · Google Flights no oficial · WATCH gratuito"
+          },
+          "verified": [],
+          "notify": false,
+          "at": "2026-10-27T09:06:59Z"
         }
       ],
       "last_audit": {
@@ -2855,12 +2873,12 @@
       },
       "last_run": {
         "mode": "WATCH",
-        "at": "2026-10-27T00:31:36Z",
+        "at": "2026-10-27T09:06:59Z",
         "status": "OK"
       },
       "last_watch": {
         "status": "NO_RESULTS",
-        "at": "2026-10-27T00:31:36Z",
+        "at": "2026-10-27T09:06:59Z",
         "offers_found": 0,
         "airlines": [],
         "direct_airlines": [],
@@ -2871,7 +2889,7 @@
       },
       "previous_watch": {
         "status": "NO_RESULTS",
-        "at": "2026-10-26T16:11:42Z",
+        "at": "2026-10-27T00:31:36Z",
         "offers_found": 0,
         "airlines": [],
         "direct_airlines": [],
@@ -5243,6 +5261,24 @@
           "verified": [],
           "notify": false,
           "at": "2026-10-27T00:32:21Z"
+        },
+        {
+          "mode": "WATCH",
+          "status": "OK",
+          "changes": [],
+          "watch": {
+            "status": "NO_RESULTS",
+            "at": "2026-10-27T09:06:59Z",
+            "offers_found": 0,
+            "airlines": [],
+            "direct_airlines": [],
+            "itinerary_hashes": [],
+            "best": null,
+            "source": "Fli · Google Flights no oficial · WATCH gratuito"
+          },
+          "verified": [],
+          "notify": false,
+          "at": "2026-10-27T09:06:59Z"
         }
       ],
       "last_audit": {
@@ -6931,7 +6967,7 @@
       },
       "last_run": {
         "mode": "WATCH",
-        "at": "2026-10-27T00:32:21Z",
+        "at": "2026-10-27T09:06:59Z",
         "status": "OK"
       },
       "last_market_audit": {
@@ -6975,7 +7011,7 @@
       },
       "last_watch": {
         "status": "NO_RESULTS",
-        "at": "2026-10-27T00:32:21Z",
+        "at": "2026-10-27T09:06:59Z",
         "offers_found": 0,
         "airlines": [],
         "direct_airlines": [],
@@ -6986,7 +7022,7 @@
       },
       "previous_watch": {
         "status": "NO_RESULTS",
-        "at": "2026-10-26T16:12:26Z",
+        "at": "2026-10-27T00:32:21Z",
         "offers_found": 0,
         "airlines": [],
         "direct_airlines": [],
